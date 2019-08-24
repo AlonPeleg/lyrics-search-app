@@ -19,10 +19,7 @@ const Lyrics = ({ match }) => {
           `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.get?track_id=${match.params.id}&apikey=${process.env.REACT_APP_API_KEY}`
         );
       })
-      .then(res => {
-        console.log(res.data.message.body.track);
-        setTrack(res.data.message.body.track);
-      })
+      .then(res => setTrack(res.data.message.body.track))
       .catch(err => console.log("Server Error"));
 
     //eslint-disable-next-line
