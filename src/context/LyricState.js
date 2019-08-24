@@ -12,14 +12,14 @@ const LyricState = props => {
 
   const [state, dispatch] = useReducer(lyricReducer, initialState);
 
-  // Get lyrics
+  // Get Top 10 US Chart (Artist, Song, Album Name)
   const getTop10 = async () => {
     try {
       const res = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${process.env.REACT_APP_API_KEY}`
       );
 
-      console.log(res.data.message.body.track_list);
+      //console.log(res.data.message.body.track_list);
       dispatch({
         type: GETTOPCHART,
         payload: res.data.message.body.track_list
