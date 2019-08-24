@@ -34,7 +34,6 @@ const LyricState = props => {
       const res = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_track=${text}&page_size=10&page=1&s_track_rating=desc&apikey=${process.env.REACT_APP_API_KEY}`
       );
-      console.log(res.data.message.body.track_list);
       dispatch({
         type: SEARCH,
         payload: res.data.message.body.track_list
